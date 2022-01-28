@@ -23,7 +23,7 @@ convert	&convert::operator=(const convert &src){
 void	convert::fillAttribute(char *input)
 {
 	if (type == charType)
-		type = input[0];
+		this->toChar = input[0];
 	else if (type == intType)
 		this->toInt = atoi(input);
 	else if (type == floatType)
@@ -117,20 +117,18 @@ bool	convert::isAChar(double number)
 }
 
 void	convert::printChar(){
-	if (type == intType){
+	if (type == intType){ 
 		if (isAChar(toInt))
-			std::cout << "char: " << static_cast<char>(toInt)<< std::endl;
-	}
+			std::cout << "char: " << static_cast<char>(toInt)<< std::endl;}
 	else if (type == convert::floatType){
-		if (isAChar(toFloat))
-			std::cout << "char: " << static_cast<char>(toFloat)<< std::endl;
-	}
+	 if (isAChar(toFloat)) 
+			std::cout << "char: " << static_cast<char>(toFloat)<< std::endl;}
 	else if (type == convert::doubleType){
-		if (isAChar(toDouble))
-			std::cout << "char: " << static_cast<char>(toDouble)<< std::endl;
-	}
+		if(isAChar(toDouble))
+			std::cout << "char: " << static_cast<char>(toDouble)<< std::endl;}
 	else
-		isAChar(toInt);
+		std::cout << "char: " << static_cast<char>(toChar)<< std::endl;
+
 }
 
 void	convert::printInt()
